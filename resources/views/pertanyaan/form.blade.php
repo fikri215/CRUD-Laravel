@@ -13,6 +13,7 @@ Form Pertanyaan
         <input type="text" class="form-control" name="isi" id="isi" placeholder="Masukkan Pertanyaan">
       </div>
       <button type="submit" class="btn btn-primary">Tanyakan</button>
+      <a class="text-decoration-none ml-2 mt-2" href="/pertanyaan">Kembali ke daftar pertanyaan</a>
     </form>
 
 @endsection

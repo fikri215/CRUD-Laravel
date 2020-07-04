@@ -21,7 +21,7 @@ Forum Tanya Jawab
                         <form action="/pertanyaan/{{$tanya->id}}" method="POST" style="display: inline">
                             @csrf
                             @method('DELETE')
-                           <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                           <button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus pertanyaan ini?')"><i class="fas fa-trash"></i></button>
                         </form>
                         
                     </div>
