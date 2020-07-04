@@ -51,13 +51,13 @@ class PertanyaanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($pertanyaan_id)
-    {
-       $question = PertanyaanModel::show($pertanyaan_id);
-        $answer = JawabanModel::all_answer($pertanyaan_id);
-        return view('jawaban.index', ['pertanyaan' => $question, 'jawaban' => $answer]);
-    }
 
+    public function show($id)
+    {
+        $question = PertanyaanModel::show($id);
+        $answer = JawabanModel::all_answer($id);
+        return view('pertanyaan.detail', ['pertanyaan' => $question, 'jawaban' => $answer]);
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -66,7 +66,8 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = PertanyaanModel::show($id);
+        return view('pertanyaan.edit', ['pertanyaan' => $question]);
     }
 
     /**
@@ -78,7 +79,8 @@ class PertanyaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = PertanyaanModel::update($request->all(), $id);
+        return redirect()->route('pertanyaan.index')->with('success', 'Pertanyaan Berhasil diubah!');
     }
 
     /**
@@ -89,6 +91,7 @@ class PertanyaanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $question = PertanyaanModel::destroy($id);
+        return redirect()->route('pertanyaan.index')->with('success', 'Pertanyaan Berhasil dihapus!');
     }
 }

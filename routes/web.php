@@ -12,9 +12,13 @@
 */
 
 Route::get('/', 'PertanyaanController@index');
-Route::get('/pertanyaan', 'PertanyaanController@index')->name('pertanyaan.index');
-Route::get('/pertanyaan/create', 'PertanyaanController@create');
-Route::post('/pertanyaan', 'PertanyaanController@store');
+Route::get('/pertanyaan', 'PertanyaanController@index')->name('pertanyaan.index'); // Menampilkan Semua Data
+Route::get('/pertanyaan/create', 'PertanyaanController@create'); // Menampilkan Halaman Form
+Route::post('/pertanyaan', 'PertanyaanController@store'); // Menyimpan Data Baru
+Route::get('/pertanyaan/{id}', 'PertanyaanController@show'); // Menampilkan detail data berdasarkan id
+Route::get('/pertanyaan/{id}/edit', 'PertanyaanController@edit'); // Mengubah data yang ada
+Route::put('/pertanyaan/{id}', 'PertanyaanController@update'); // Menyimpan perubahan data
+Route::delete('/pertanyaan/{id}', 'PertanyaanController@destroy'); // Menghapus data berdasarkan id
 Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index')->name('jawaban.index');
 Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
 
