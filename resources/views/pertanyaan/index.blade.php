@@ -13,7 +13,7 @@ Forum Tanya Jawab
             <div class="card mt-1">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text text-bold">{{ $tanya->isi }}</p>
+                    <p class="card-text text-bold">{!! $tanya->isi !!}</p>
                     <div class="float-right">
                         <a href="/pertanyaan/{{$tanya->id}}" class="btn btn-info">Detail</a>
                         <a href="/jawaban/{{$tanya->id}}" class="btn btn-success">Reply</a>

@@ -23,4 +23,10 @@ Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index')->name('jawaban
 Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
 
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+     \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
